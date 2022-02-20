@@ -50,5 +50,11 @@
     "src/**/*.{js,jsx,ts,tsx}": [
       "npm run lint-fix"
     ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all"
   }
 }
