@@ -1,7 +1,7 @@
-import "./App.css";
+import { Router } from 'router/Router'
 
-function App() {
-  return <div className="App">hello</div>;
+const App: React.VFC = () => {
+  return <Router />
 }
 
-export default App;
+export default App
