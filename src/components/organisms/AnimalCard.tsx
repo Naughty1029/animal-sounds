@@ -3,16 +3,24 @@ import CardMedia from '@mui/material/CardMedia'
 import { CardActionArea } from '@mui/material'
 import Button from '@mui/material/Button'
 //型エイリアス
-type Animal = {
+type Props = {
   name: string
   image: string
+  sound: string
+  checkAnswer: (value: string) => boolean
 }
 const path = `${process.env.PUBLIC_URL}/assets/images/`
 
-export const AnimalCard: React.VFC<Animal> = ({ name, image }) => {
+export const AnimalCard: React.VFC<Props> = ({
+  name,
+  image,
+  sound,
+  checkAnswer,
+}) => {
+  console.log(name)
   return (
     <>
-      <Card>
+      <Card onClick={() => checkAnswer(sound)}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -22,7 +30,9 @@ export const AnimalCard: React.VFC<Animal> = ({ name, image }) => {
           />
         </CardActionArea>
       </Card>
-      <Button variant="contained">{name}</Button>
+      <Button onClick={() => checkAnswer(sound)} variant="contained">
+        {name}
+      </Button>
     </>
   )
 }
