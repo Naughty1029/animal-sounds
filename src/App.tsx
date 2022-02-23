@@ -1,6 +1,6 @@
 import { Router } from 'router/Router'
 
-const App: React.VFC = () => {
+const App = () => {
   return <Router />
 }
 

@@ -17,7 +17,6 @@ export const AnimalCard: React.VFC<Props> = ({
   sound,
   checkAnswer,
 }) => {
-  console.log(name)
   return (
     <>
       <Card onClick={() => checkAnswer(sound)}>

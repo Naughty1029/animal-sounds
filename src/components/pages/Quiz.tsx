@@ -1,28 +1,14 @@
-import { useEffect, useState } from 'react'
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
 import defaultDataset from 'dataset'
-import { AnimalCard } from 'components/organisms/AnimalCard'
-import { Link } from 'react-router-dom'
+import { QuizItem } from './QuizItem'
 
-type Animal = {
+interface Animal {
   name: string
   image: string
   sound: string
 }
 
-export const Quiz: React.VFC = () => {
-  const [page, setPage] = useState(0)
-  const [question, setQuestion] = useState([
-    {
-      name: 'aaa',
-      image: 'aaa',
-      sound: 'aaa',
-    },
-  ])
-  const [answer, setAnswer] = useState({})
+export const Quiz = () => {
   const choices = 3 //選択肢の数
-  console.log(question)
 
   //選択肢
   const initQuestion = (datas: Animal[]) => {
@@ -58,52 +44,15 @@ export const Quiz: React.VFC = () => {
     return newAnswer
   }
 
-  // const checkAnswer = (answer:string):boolean => {
-  //   if(answer === answers[page]){
-  //     alert('正解');
-  //   }else{
-  //     alert('不正解');
-  //   }
-  //   return true;
-  // }
-
-  //問題と正解の配列をそれぞれ作って管理する
-  useEffect(() => {
-    let dataSet = initQuestion(defaultDataset)
-    setQuestion(dataSet)
-    let answer = initAnswerArray(dataSet)
-    setAnswer(answer)
-  }, [])
+  let dataSet: Animal[][] = initQuestion(defaultDataset)
+  let answers: string[] = initAnswerArray(dataSet)
 
   return (
     <>
       <h1>Quiz Page</h1>
-      <br />
-      <br />
-      <Link to="/">TOPへ</Link>
-      <br />
-      <br />
-      <br />
-      <br />
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {question[page].map((data: any, index: number) => {
-            console.log(data.name)
-            return (
-              <Grid key={index} item xs={4}>
-                <AnimalCard
-                  name={data.name}
-                  image={data.image}
-                  sound={data.sound}
-                  checkAnswer={checkAnswer}
-                />
-              </Grid>
-            )
-          })}
-        </Grid>
-      </Box>
-      <br />
-      <br />
+      <br /> <br />
+      <QuizItem dataSet={dataSet} answers={answers} />
+      <br /> <br />
       <div>次の問題へ</div>
     </>
   )
