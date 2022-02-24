@@ -1,3 +1,4 @@
+//動物のデータ
 const defaultDataset = [
   {
     name: 'いぬ',
