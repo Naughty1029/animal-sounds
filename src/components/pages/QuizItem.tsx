@@ -36,6 +36,7 @@ export const QuizItem = ({ dataSet, answers }) => {
               />
             </Grid>
           ))}
+          <div onClick={() => setPage(1)}>aaa</div>
         </Grid>
       </Box>
     </>
