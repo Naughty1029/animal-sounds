@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Top } from 'components/pages/Top'
-import { Quiz } from 'components/pages/Quiz'
+import { Top } from 'components/pages/Top/Top'
+import { Quiz } from 'components/pages/Quiz/Quiz'
 
 export const Router: React.VFC = () => {
   return (

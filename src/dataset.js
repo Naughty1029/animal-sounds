@@ -121,9 +121,9 @@ const defaultDataset = [
     sound: 'bee.mp3',
   },
   {
-    name: 'ことり',
-    image: 'bird.jpg',
-    sound: 'bird.mp3',
+    name: 'すずめ',
+    image: 'sparrow.jpg',
+    sound: 'sparrow.mp3',
   },
   {
     name: 'からす',
