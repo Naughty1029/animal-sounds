@@ -1,3 +1,6 @@
+/** @jsxImportSource @emotion/react */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import styled from '@emotion/styled'
 import defaultDataset from 'dataset'
 import { QuizItem } from './QuizItem'
 import { CommonLayout } from 'components/layouts/CommonLayout'
@@ -51,11 +54,26 @@ export const Quiz = () => {
   return (
     <>
       <CommonLayout>
-        <div>
-          <h1>どーれだ？</h1>
+        <SInnerDiv>
+          <STitle>どーれだ？</STitle>
           <QuizItem dataSet={dataSet} answers={answers} />
-        </div>
+        </SInnerDiv>
       </CommonLayout>
     </>
   )
 }
+
+const STitle = styled.h1`
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: #ffffff;
+  text-shadow: 0 0 15px #007dc7;
+`
+
+const SInnerDiv = styled.div`
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 40px;
+  text-align: center;
+`

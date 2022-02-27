@@ -27,20 +27,27 @@ const buttonStyle = css`
   padding: 10px 0;
   max-width: 300px;
 `
+interface Props {
+  setStartFlag: (value: boolean) => void
+}
 
-export const BasicModal = () => {
+export const OpeningModal: React.VFC<Props> = ({ setStartFlag }) => {
+  //音声再生終了後にイベントを発生させたいので、audio要素はstateで管理する
+  const music = new Audio(`${process.env.PUBLIC_URL}/assets/voices/opening.mp3`)
+  const bgm = new Audio(`${process.env.PUBLIC_URL}/assets/voices/bgm.mp3`)
+
   const [open, setOpen] = React.useState(true)
+
   const initVoice = () => {
     setOpen(false)
-    const music = new Audio(
-      `${process.env.PUBLIC_URL}/assets/voices/opening.mp3`,
-    )
-    const bgm = new Audio(`${process.env.PUBLIC_URL}/assets/voices/bgm.mp3`)
-    // music.play();
+    music.play()
     // bgm.volume = 0.07;
     // bgm.loop = true;
-    // bgm.play();
   }
+
+  React.useEffect(() => {
+    music.addEventListener('ended', () => setStartFlag(false))
+  }, [])
 
   return (
     <div>

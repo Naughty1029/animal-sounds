@@ -3,10 +3,12 @@
 import styled from '@emotion/styled'
 import { CommonLayout } from 'components/layouts/CommonLayout'
 import { mq } from 'components/settings/MediaQuery'
-import { BasicModal } from './OpeningModal'
+import { useState } from 'react'
+import { OpeningModal } from './OpeningModal'
 import { StartButton } from './StartButton'
 
 export const Top: React.VFC = () => {
+  const [startFlag, setStartFlag] = useState(true)
   return (
     <>
       <CommonLayout>
@@ -16,22 +18,13 @@ export const Top: React.VFC = () => {
             <br />
             いきものどーれだ？
           </STitle>
-          <StartButton>はじめる</StartButton>
+          <StartButton startFlag={startFlag}>はじめる</StartButton>
         </STitleBand>
       </CommonLayout>
-      <BasicModal />
+      <OpeningModal setStartFlag={setStartFlag} />
     </>
   )
 }
-
-const STitleBg = styled.div`
-  background-image: url(${process.env.PUBLIC_URL}/assets/images/title_bg.jpg);
-  height: 100vh;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
 
 const STitleBand = styled.div`
   background-color: rgba(255, 255, 255, 0.6);

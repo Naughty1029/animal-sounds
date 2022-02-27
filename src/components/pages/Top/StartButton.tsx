@@ -8,21 +8,25 @@ const buttonStyle = css`
   font-size: 30px;
   margin-top: 30px;
   width: 100%;
-  padding: 10px 0;
   max-width: 300px;
+  padding: 0;
 `
 const hrefResetStyle = css`
   color: #fff;
   text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
 `
 
 interface Props {
   children: string
+  startFlag: boolean
 }
 
 export const StartButton: React.VFC<Props> = (props) => {
   return (
-    <Button css={buttonStyle} variant="contained">
+    <Button css={buttonStyle} variant="contained" disabled={props.startFlag}>
       <Link css={hrefResetStyle} to="/quiz">
         {props.children}
       </Link>

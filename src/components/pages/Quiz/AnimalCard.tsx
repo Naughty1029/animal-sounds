@@ -1,7 +1,8 @@
 import Card from '@mui/material/Card'
 import CardMedia from '@mui/material/CardMedia'
 import { CardActionArea } from '@mui/material'
-import Button from '@mui/material/Button'
+import { AnswerButton } from 'components/pages/Quiz/AnswerButton'
+
 //型エイリアス
 type Props = {
   name: string
@@ -21,17 +22,10 @@ export const AnimalCard: React.VFC<Props> = ({
     <>
       <Card onClick={() => checkAnswer(sound)}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            height="300"
-            image={path + image}
-            alt={name}
-          />
+          <CardMedia component="img" image={path + image} alt={name} />
         </CardActionArea>
       </Card>
-      <Button onClick={() => checkAnswer(sound)} variant="contained">
-        {name}
-      </Button>
+      <AnswerButton>{name}</AnswerButton>
     </>
   )
 }
