@@ -2,23 +2,19 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styled from '@emotion/styled'
 import { mq } from 'components/settings/MediaQuery'
-import { useState } from 'react'
-import { OpeningModal } from './OpeningModal'
-import { StartButton } from './StartButton'
+import { RestartButton } from './RestartButton'
 
-export const Top: React.VFC = () => {
-  const [startFlag, setStartFlag] = useState(true)
+export const Done: React.VFC = () => {
   return (
     <>
       <STitleBand>
         <STitle>
-          おとあてげーむ！
+          おしまーい!
           <br />
-          いきものどーれだ？
+          またあそんでね!
         </STitle>
-        <StartButton startFlag={startFlag}>はじめる</StartButton>
+        <RestartButton>もういっかい</RestartButton>
       </STitleBand>
-      <OpeningModal setStartFlag={setStartFlag} />
     </>
   )
 }

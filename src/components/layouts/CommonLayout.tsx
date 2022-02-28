@@ -2,9 +2,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReactNode } from 'react'
 import styled from '@emotion/styled'
-import { mq } from 'components/settings/MediaQuery'
 
-interface Props {
+type Props = {
   children: ReactNode
 }
 

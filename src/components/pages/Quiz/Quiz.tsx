@@ -3,15 +3,14 @@
 import styled from '@emotion/styled'
 import defaultDataset from 'dataset'
 import { QuizItem } from './QuizItem'
-import { CommonLayout } from 'components/layouts/CommonLayout'
 
-interface Animal {
+type Animal = {
   name: string
   image: string
   sound: string
 }
 
-export const Quiz = () => {
+export const Quiz: React.VFC = () => {
   const choices = 3 //選択肢の数
 
   //選択肢
@@ -52,14 +51,10 @@ export const Quiz = () => {
   let answers: string[] = initAnswerArray(dataSet)
 
   return (
-    <>
-      <CommonLayout>
-        <SInnerDiv>
-          <STitle>どーれだ？</STitle>
-          <QuizItem dataSet={dataSet} answers={answers} />
-        </SInnerDiv>
-      </CommonLayout>
-    </>
+    <SInnerDiv>
+      <STitle>どーれだ?</STitle>
+      <QuizItem dataSet={dataSet} answers={answers} />
+    </SInnerDiv>
   )
 }
 

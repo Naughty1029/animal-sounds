@@ -1,26 +1,10 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { css } from '@emotion/react'
-import * as React from 'react'
-import Box from '@mui/material/Box'
+import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
-import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  textAlign: 'center',
-}
-
-interface Props {
+type Props = {
   answer: string
 }
 
@@ -30,14 +14,14 @@ export const QuizModal: React.VFC<Props> = ({ answer }) => {
     `${process.env.PUBLIC_URL}/assets/voices/animals/${answer}`,
   )
 
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = useState(true)
 
   //よーく聞いてねを流す関数
   const readyVoice = () => {
     hear.play()
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setOpen(true)
     hear.removeEventListener('ended', () => animalVoice.play())
 

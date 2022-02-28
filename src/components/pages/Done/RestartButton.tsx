@@ -21,18 +21,11 @@ const hrefResetStyle = css`
 
 type Props = {
   children: string
-  startFlag: boolean
 }
 
-export const StartButton: React.VFC<Props> = (props) => {
-  const button = new Audio(`${process.env.PUBLIC_URL}/assets/voices/button.mp3`)
+export const RestartButton: React.VFC<Props> = (props) => {
   return (
-    <Button
-      css={buttonStyle}
-      variant="contained"
-      disabled={props.startFlag}
-      onClick={() => button.play()}
-    >
+    <Button css={buttonStyle} variant="contained">
       <Link css={hrefResetStyle} to="/quiz">
         {props.children}
       </Link>

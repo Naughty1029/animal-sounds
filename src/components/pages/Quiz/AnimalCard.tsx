@@ -8,7 +8,7 @@ type Props = {
   name: string
   image: string
   sound: string
-  checkAnswer: (value: string) => boolean
+  checkAnswer: (value: string) => void
 }
 const path = `${process.env.PUBLIC_URL}/assets/images/animals/`
 
@@ -25,7 +25,9 @@ export const AnimalCard: React.VFC<Props> = ({
           <CardMedia component="img" image={path + image} alt={name} />
         </CardActionArea>
       </Card>
-      <AnswerButton>{name}</AnswerButton>
+      <AnswerButton checkAnswer={checkAnswer} sound={sound}>
+        {name}
+      </AnswerButton>
     </>
   )
 }

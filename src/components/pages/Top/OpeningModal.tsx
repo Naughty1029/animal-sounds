@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { css } from '@emotion/react'
-import * as React from 'react'
+import { useContext, useState, useEffect } from 'react'
+import { PageContext } from 'providers/PageProvider'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -27,7 +28,7 @@ const buttonStyle = css`
   padding: 10px 0;
   max-width: 300px;
 `
-interface Props {
+type Props = {
   setStartFlag: (value: boolean) => void
 }
 
@@ -35,17 +36,22 @@ export const OpeningModal: React.VFC<Props> = ({ setStartFlag }) => {
   //音声再生終了後にイベントを発生させたいので、audio要素はstateで管理する
   const music = new Audio(`${process.env.PUBLIC_URL}/assets/voices/opening.mp3`)
   const bgm = new Audio(`${process.env.PUBLIC_URL}/assets/voices/bgm.mp3`)
+  const button = new Audio(`${process.env.PUBLIC_URL}/assets/voices/button.mp3`)
 
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = useState(true)
+  const { setPageInfo } = useContext(PageContext)
 
-  const initVoice = () => {
+  const initGame = () => {
+    setPageInfo(true)
     setOpen(false)
+    button.play()
     music.play()
-    // bgm.volume = 0.07;
-    // bgm.loop = true;
+    bgm.play()
+    bgm.volume = 0.07
+    bgm.loop = true
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     music.addEventListener('ended', () => setStartFlag(false))
   }, [])
 
@@ -58,14 +64,14 @@ export const OpeningModal: React.VFC<Props> = ({ setStartFlag }) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            おとをだしてもいいですか？
+            おとをだしてもいいですか?
           </Typography>
           <Button
             css={buttonStyle}
             variant="contained"
-            onClick={() => initVoice()}
+            onClick={() => initGame()}
           >
-            いいよ！
+            いいよ!
           </Button>
         </Box>
       </Modal>
