@@ -18,6 +18,7 @@ export const QuizModal: React.VFC<Props> = ({ answer }) => {
 
   //よーく聞いてねを流す関数
   const readyVoice = () => {
+    hear.volume = 0.2
     hear.play()
   }
 
@@ -30,7 +31,10 @@ export const QuizModal: React.VFC<Props> = ({ answer }) => {
       readyVoice()
     }, 1000)
 
-    hear.addEventListener('ended', () => animalVoice.play())
+    hear.addEventListener('ended', () => {
+      animalVoice.volume = 0.2
+      animalVoice.play()
+    })
     animalVoice.addEventListener('ended', () => setOpen(false))
   }, [answer])
 

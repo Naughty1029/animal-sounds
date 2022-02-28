@@ -44,11 +44,12 @@ export const OpeningModal: React.VFC<Props> = ({ setStartFlag }) => {
   const initGame = () => {
     setPageInfo(true)
     setOpen(false)
+    music.volume = 0.2
+    bgm.volume = 0.05
+    bgm.loop = true
     button.play()
     music.play()
     bgm.play()
-    bgm.volume = 0.07
-    bgm.loop = true
   }
 
   useEffect(() => {
