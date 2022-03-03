@@ -9,11 +9,11 @@
 https://animal-sounds.cocoroworks.net/
 
 # 使用技術について
-React　v17.0.2
-TypeScript　v4.5.5
-Material UI v5.4.2
-Emotion 11.8.1
-ESLint/Prettier
+- React　v17.0.2
+- TypeScript　v4.5.5
+- Material UI v5.4.2
+- Emotion 11.8.1
+- ESLint / Prettier
 
 ### `npm start`
 サーバー起動
