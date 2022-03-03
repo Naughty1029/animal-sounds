@@ -8,8 +8,12 @@
 
 https://animal-sounds.cocoroworks.net/
 
-# 動作環境について
-node v14.0.0以上推奨
+# 使用技術について
+React　v17.0.2
+TypeScript　v4.5.5
+Material UI v5.4.2
+Emotion 11.8.1
+ESLint/Prettier
 
 ### `npm start`
 サーバー起動
